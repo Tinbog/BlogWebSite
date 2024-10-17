@@ -1,10 +1,9 @@
 package com.mojo.experience.pojo;
 
 import lombok.Data;
-import org.apache.ibatis.annotations.Mapper;
-
-@Mapper
+import org.springframework.stereotype.Repository;
 @Data
+@Repository
 public class User {
     private int id;
     private String username;

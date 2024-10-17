@@ -2,15 +2,19 @@ package com.mojo.experience.controller;
 
 import com.mojo.experience.mapper.UserMapper;
 import com.mojo.experience.pojo.User;
-import org.springframework.stereotype.Controller;
+import jakarta.annotation.Resource;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-@Controller
+@RestController
 public class UserController {
+    @Resource
     private UserMapper userMapper;
+    @GetMapping("/get")
     public String query() {
-        List<User> users = userMapper.findAll();
+        List<User> users = userMapper.selectList(null);
         return users.toString();
     }
 }
